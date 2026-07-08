@@ -342,7 +342,10 @@
     container.innerHTML = html;
 
     document.getElementById("btn-ja").addEventListener("click", function () {
-      document.getElementById("qtext-ja").classList.toggle("show");
+      var show = !document.getElementById("qtext-ja").classList.contains("show");
+      document.getElementById("qtext-ja").classList.toggle("show", show);
+      document.getElementById("choices").classList.toggle("show-ja", show);
+      this.textContent = show ? "和訳を隠す ⌃" : "和訳を見る ⌄";
     });
 
     var choiceEls = container.querySelectorAll(".choice");
